@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azure ETL Pipeline — Sonal Sonawane</title>
+<meta name="description" content="Case study: end-to-end Azure ETL pipeline for e-commerce analytics, built by Sonal Sonawane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark">S<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#stack">Stack</a>
+      <a href="../index.html#certifications">Certifications</a>
+      <a href="../index.html#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="case-page-header">
+    <a href="../index.html#projects" class="back-link">← Back to projects</a>
+    <p class="eyebrow">case study</p>
+    <h1>End-to-End Azure ETL Pipeline for E-Commerce Analytics</h1>
+    <div class="case-meta">
+      <span class="tag tag-bronze">azure</span>
+      <span class="tag">databricks</span>
+      <span class="tag">mongodb</span>
+    </div>
+  </section>
+
+  <section class="section case-page-body">
+
+    <article class="case-study case-study-standalone">
+
+      <div class="case-block">
+        <p class="case-label">The problem</p>
+        <p>E-commerce data arrived from two very different places — a public dataset pulled via HTTP from GitHub, and an internal SQL table — with no shared structure, no enrichment, and no path to a report a stakeholder could trust.</p>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">The approach</p>
+        <p>Azure Data Factory orchestrates ingestion from both sources into ADLS Gen2 as raw data. Azure Databricks transforms that raw data, enriching it with a lookup table pulled from MongoDB, and writes the transformed output back to a second ADLS Gen2 layer. Azure Synapse sits on top, exposing the transformed data for reporting through Power BI, Tableau, and Microsoft Fabric.</p>
+      </div>
+
+      <div class="case-diagram">
+        <svg width="100%" viewBox="0 0 680 640" role="img" aria-labelledby="pipeline-title pipeline-desc">
+          <title id="pipeline-title">Azure ETL pipeline architecture</title>
+          <desc id="pipeline-desc">HTTP via GitHub and SQL Table sources feed into Azure Data Factory, which ingests raw data into ADLS Gen2. Azure Databricks transforms the data, enriched with a MongoDB lookup table, and writes transformed output back to ADLS Gen2. Synapse exposes the data for Power BI, Tableau, and Fabric reporting.</desc>
+          <defs>
+            <marker id="arrowP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+          </defs>
+
+          <g><rect x="40" y="40" width="180" height="130" rx="16" fill="none" stroke="var(--paper-dim)" stroke-width="0.5" opacity="0.4"/><text x="60" y="66" fill="var(--paper)" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600">Data sources</text></g>
+          <g><rect x="58" y="84" width="70" height="60" rx="8" fill="var(--ink-soft)" stroke="var(--paper-dim)" stroke-width="0.5"/><text x="93" y="108" text-anchor="middle" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">HTTP</text><text x="93" y="124" text-anchor="middle" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">via GitHub</text></g>
+          <g><rect x="140" y="84" width="70" height="60" rx="8" fill="var(--ink-soft)" stroke="var(--paper-dim)" stroke-width="0.5"/><text x="175" y="108" text-anchor="middle" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">SQL</text><text x="175" y="124" text-anchor="middle" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">table</text></g>
+
+          <text x="230" y="90" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Data ingestion</text>
+          <line x1="220" y1="100" x2="290" y2="100" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <g><rect x="292" y="76" width="150" height="48" rx="8" fill="#0C447C" stroke="#378ADD" stroke-width="0.5"/><text x="367" y="100" text-anchor="middle" dominant-baseline="central" fill="#E6F1FB" font-family="IBM Plex Mono, monospace" font-size="13">Azure Data Factory</text></g>
+
+          <line x1="367" y1="124" x2="367" y2="160" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+          <text x="380" y="145" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Raw data</text>
+
+          <g><rect x="292" y="162" width="150" height="48" rx="8" fill="#4A1B0C" stroke="#D85A30" stroke-width="0.5"/><text x="367" y="180" text-anchor="middle" dominant-baseline="central" fill="#F0997B" font-family="IBM Plex Mono, monospace" font-size="13">ADLS Gen2</text><text x="367" y="198" text-anchor="middle" dominant-baseline="central" fill="#F5C4B3" font-family="IBM Plex Mono, monospace" font-size="11">Raw data</text></g>
+
+          <line x1="442" y1="186" x2="478" y2="186" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <g><rect x="480" y="162" width="150" height="48" rx="8" fill="#412402" stroke="#BA7517" stroke-width="0.5"/><text x="555" y="180" text-anchor="middle" dominant-baseline="central" fill="#EF9F27" font-family="IBM Plex Mono, monospace" font-size="13">Azure Databricks</text><text x="555" y="198" text-anchor="middle" dominant-baseline="central" fill="#FAC775" font-family="IBM Plex Mono, monospace" font-size="11">Data transformation</text></g>
+
+          <g><rect x="480" y="260" width="150" height="48" rx="8" fill="var(--ink-soft)" stroke="var(--paper-dim)" stroke-width="0.5"/><text x="555" y="278" text-anchor="middle" dominant-baseline="central" fill="var(--paper)" font-family="IBM Plex Mono, monospace" font-size="13">MongoDB</text><text x="555" y="296" text-anchor="middle" dominant-baseline="central" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Enrichment table</text></g>
+          <line x1="555" y1="260" x2="555" y2="212" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <line x1="367" y1="210" x2="367" y2="380" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+          <text x="380" y="330" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Transformed</text>
+          <text x="380" y="346" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">data</text>
+
+          <g><rect x="292" y="382" width="150" height="48" rx="8" fill="#04342C" stroke="#1D9E75" stroke-width="0.5"/><text x="367" y="400" text-anchor="middle" dominant-baseline="central" fill="#5DCAA5" font-family="IBM Plex Mono, monospace" font-size="13">ADLS Gen2</text><text x="367" y="418" text-anchor="middle" dominant-baseline="central" fill="#9FE1CB" font-family="IBM Plex Mono, monospace" font-size="11">Transformed data</text></g>
+
+          <line x1="367" y1="430" x2="367" y2="466" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <g><rect x="292" y="468" width="150" height="48" rx="8" fill="#26215C" stroke="#7F77DD" stroke-width="0.5"/><text x="367" y="492" text-anchor="middle" dominant-baseline="central" fill="#CECBF6" font-family="IBM Plex Mono, monospace" font-size="13">Synapse</text></g>
+
+          <line x1="367" y1="516" x2="367" y2="552" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <g><rect x="240" y="554" width="254" height="60" rx="8" fill="var(--ink-soft)" stroke="var(--paper-dim)" stroke-width="0.5"/><text x="367" y="576" text-anchor="middle" dominant-baseline="central" fill="var(--paper)" font-family="IBM Plex Mono, monospace" font-size="13">Visualisation</text><text x="367" y="596" text-anchor="middle" dominant-baseline="central" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Power BI · Tableau · Fabric</text></g>
+        </svg>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">What I'd do differently</p>
+        <p>The MongoDB enrichment step introduces a dependency between two very different storage paradigms — document and lakehouse — inside one transformation stage. Next time I'd isolate that lookup as its own versioned reference dataset in ADLS, so the Databricks job doesn't need a live connection to MongoDB at run time.</p>
+      </div>
+
+      <ul class="project-facts">
+        <li><span>Ingestion</span> Azure Data Factory · GitHub · SQL</li>
+        <li><span>Storage</span> ADLS Gen2 (raw &amp; transformed)</li>
+        <li><span>Transform</span> Azure Databricks + MongoDB enrichment</li>
+        <li><span>Serving</span> Azure Synapse → Power BI · Tableau · Fabric</li>
+      </ul>
+    </article>
+
+    <div class="case-page-nav">
+      <a href="welfare-forecasting.html" class="case-page-next">Next project: MSc Thesis — Welfare Forecasting <i class="arrow">→</i></a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built &amp; maintained by Sonal · Dublin</p>
+</footer>
+
+</body>
+</html>
