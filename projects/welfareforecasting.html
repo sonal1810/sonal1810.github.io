@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forecasting Welfare Recipients — Sonal Sonawane</title>
+<meta name="description" content="Case study: MSc thesis forecasting welfare recipients and simulating poverty impacts of policy uplifts in Ireland, by Sonal Sonawane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-mark">S<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#stack">Stack</a>
+      <a href="../index.html#certifications">Certifications</a>
+      <a href="../index.html#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="case-page-header">
+    <a href="../index.html#projects" class="back-link">← Back to projects</a>
+    <p class="eyebrow">case study</p>
+    <h1>MSc Thesis — Forecasting Welfare Recipients &amp; Simulating Poverty Impacts of Policy Uplifts in Ireland</h1>
+    <div class="case-meta">
+      <span class="tag tag-silver">xgboost</span>
+      <span class="tag">time series</span>
+      <span class="tag">public policy</span>
+    </div>
+  </section>
+
+  <section class="section case-page-body">
+
+    <article class="case-study case-study-standalone">
+
+      <div class="case-block">
+        <p class="case-label">The problem</p>
+        <p>Budget 2026 announced a €10-per-week increase to core social welfare payments in Ireland, effective January 2026. The intention was clear; the expected impact on poverty rates was not. This research set out to forecast welfare recipient numbers for 2026 and quantify what the uplift would actually do to national poverty levels.</p>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">The approach</p>
+        <p>Using Ireland's quarterly Live Register data (2014–2025) from the Irish Government open data portal, I engineered lag-based features and trained three forecasting models — SARIMA, Prophet, and XGBoost — on data through 2022Q4, testing on 2023Q1–2025Q3. XGBoost won clearly on every metric and became the forecasting engine for 2026. I then built a policy simulation layer: using a poverty-income elasticity of −7.14 (projected from official 2023–2024 statistics), I converted the €10 weekly uplift into a projected quarterly poverty-rate change and government cost, for each of the four 2026 quarters the model forecast.</p>
+      </div>
+
+      <div class="chart-wrap">
+        <div class="chart-legend">
+          <span><i class="legend-dot" style="background:#378ADD"></i>Actual (2014–2025)</span>
+          <span><i class="legend-dot dashed" style="border-color:#E24B4A"></i>XGBoost forecast (2026)</span>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="welfareChart" role="img" aria-label="Quarterly welfare recipients from 2014 to 2025 declining overall from about 400,000 to 165,000, with a COVID-related spike around 2020, then an XGBoost forecast for 2026 showing recipients between roughly 168,000 and 179,000">
+            Quarterly welfare recipients declining from roughly 391,000 in 2014Q1 to around 171,000 by 2025Q3, with a temporary rise around 2020. XGBoost forecasts 2026 quarters at approximately 178,935, 174,256, 174,747, and 168,394 recipients.
+          </canvas>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">Model comparison</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Model</th><th>MAE</th><th>RMSE</th><th>MAPE</th><th>Accuracy</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>SARIMA</td><td>14,877</td><td>16,520</td><td>8.36%</td><td>91.64%</td></tr>
+              <tr><td>Prophet</td><td>18,127</td><td>24,333</td><td>10.36%</td><td>89.64%</td></tr>
+              <tr class="highlight-row"><td>XGBoost</td><td>4,426</td><td>6,070</td><td>2.53%</td><td>97.47%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">2026 policy simulation results</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Quarter</th><th>Forecasted recipients</th><th>Quarterly uplift cost</th><th>Poverty-rate change</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2026 Q1</td><td>178,935</td><td>€23.26M</td><td>−7.32%</td></tr>
+              <tr><td>2026 Q2</td><td>174,256</td><td>€22.65M</td><td>−7.32%</td></tr>
+              <tr><td>2026 Q3</td><td>174,747</td><td>€22.72M</td><td>−7.32%</td></tr>
+              <tr><td>2026 Q4</td><td>168,394</td><td>€21.89M</td><td>−7.32%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">What I'd do differently</p>
+        <p>XGBoost was trained on only two lag features, with no macroeconomic or demographic variables and no explicit seasonal component. The elasticity-based poverty simulation also assumes a uniform income effect across all recipients, which glosses over household structure, secondary income, and regional cost-of-living variation. Next time I'd bring in unemployment and inflation series as exogenous features, and model heterogeneity in the elasticity itself rather than applying one national figure to every recipient.</p>
+      </div>
+
+      <ul class="project-facts">
+        <li><span>Models</span> SARIMA · Prophet · XGBoost (winner)</li>
+        <li><span>Data</span> Ireland Live Register, 2014–2025 (open data portal)</li>
+        <li><span>Simulation</span> Poverty-income elasticity −7.14 · €10/week uplift</li>
+        <li><span>Tools</span> Python · Pandas · statsmodels · Prophet · XGBoost</li>
+      </ul>
+    </article>
+
+    <div class="case-page-nav">
+      <a href="azure-pipeline.html" class="case-page-next">Next project: Azure ETL Pipeline <i class="arrow">→</i></a>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built &amp; maintained by Sonal · Dublin</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+(function() {
+  var q = ['2014Q1','2014Q2','2014Q3','2014Q4','2015Q1','2015Q2','2015Q3','2015Q4','2016Q1','2016Q2','2016Q3','2016Q4','2017Q1','2017Q2','2017Q3','2017Q4','2018Q1','2018Q2','2018Q3','2018Q4','2019Q1','2019Q2','2019Q3','2019Q4','2020Q1','2020Q2','2020Q3','2020Q4','2021Q1','2021Q2','2021Q3','2021Q4','2022Q1','2022Q2','2022Q3','2022Q4','2023Q1','2023Q2','2023Q3','2023Q4','2024Q1','2024Q2','2024Q3','2024Q4','2025Q1','2025Q2','2025Q3'];
+  var actual = [391,398,404,370,357,354,358,352,347,332,322,321,317,306,318,286,277,274,278,265,272,235,275,246,204,220,245,225,203,193,189,199,181,178,192,180,163,164,183,189,197,180,183,172,195,183,171];
+  var fq = ['2026Q1','2026Q2','2026Q3','2026Q4'];
+  var forecast = [178.9,174.3,174.7,168.4];
+  var allLabels = q.concat(fq);
+  var actualData = actual.concat(Array(4).fill(null));
+  var forecastData = Array(q.length - 1).fill(null).concat([actual[actual.length - 1]]).concat(forecast);
+
+  new Chart(document.getElementById('welfareChart'), {
+    type: 'line',
+    data: {
+      labels: allLabels,
+      datasets: [
+        { label: 'Actual', data: actualData, borderColor: '#378ADD', backgroundColor: 'rgba(55,138,221,0.08)', fill: true, borderWidth: 2, pointRadius: 0, tension: 0.25 },
+        { label: 'XGBoost forecast', data: forecastData, borderColor: '#E24B4A', borderWidth: 2, borderDash: [6,4], pointRadius: 0, tension: 0.25 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + (ctx.parsed.y !== null ? Math.round(ctx.parsed.y * 1000).toLocaleString() : ''); } } }
+      },
+      scales: {
+        y: { ticks: { color: '#B9B4A8', callback: function(v) { return v + 'k'; } }, grid: { color: 'rgba(185,180,168,0.12)' } },
+        x: { ticks: { color: '#B9B4A8', autoSkip: true, maxTicksLimit: 12, maxRotation: 45 }, grid: { display: false } }
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
