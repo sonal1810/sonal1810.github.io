@@ -99,11 +99,6 @@
         </svg>
       </div>
 
-      <div class="case-block">
-        <p class="case-label">What I'd do differently</p>
-        <p>The MongoDB enrichment step introduces a dependency between two very different storage paradigms — document and lakehouse — inside one transformation stage. Next time I'd isolate that lookup as its own versioned reference dataset in ADLS, so the Databricks job doesn't need a live connection to MongoDB at run time.</p>
-      </div>
-
       <ul class="project-facts">
         <li><span>Ingestion</span> Azure Data Factory · GitHub · SQL</li>
         <li><span>Storage</span> ADLS Gen2 (raw &amp; transformed)</li>
