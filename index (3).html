@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonal — Data Analytics &amp; Engineering</title>
+<meta name="description" content="Sonal Sonawane — Data Engineer &amp; Analyst. Azure ETL pipelines, Power BI, Microsoft Fabric, MSc Data Analytics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">S<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#stack">Stack</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">data engineer &amp; analyst — dublin, ireland</p>
+      <h1 class="hero-title">
+        I turn raw, messy data<br>
+        into <em>pipelines</em> people trust<br>
+        and decisions people make.
+      </h1>
+      <p class="hero-sub">
+        Data Engineer with hands-on experience building ETL pipelines and
+        analytics-ready data solutions on Azure — currently completing an
+        MSc in Data Analytics and expanding into Microsoft Fabric.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">See the work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-pipeline" aria-hidden="true">
+      <svg viewBox="0 0 480 200" class="pipeline-svg">
+        <line x1="40" y1="100" x2="440" y2="100" class="pipe-line" />
+        <g class="pipe-node" style="--delay:0s">
+          <circle cx="60" cy="100" r="7" class="node-dot bronze" />
+          <text x="60" y="135" class="node-label">RAW</text>
+        </g>
+        <g class="pipe-node" style="--delay:0.4s">
+          <circle cx="180" cy="100" r="7" class="node-dot bronze" />
+          <text x="180" y="135" class="node-label">BRONZE</text>
+        </g>
+        <g class="pipe-node" style="--delay:0.8s">
+          <circle cx="300" cy="100" r="7" class="node-dot silver" />
+          <text x="300" y="135" class="node-label">SILVER</text>
+        </g>
+        <g class="pipe-node" style="--delay:1.2s">
+          <circle cx="420" cy="100" r="8" class="node-dot gold" />
+          <text x="420" y="135" class="node-label">GOLD</text>
+        </g>
+        <circle r="4" class="pulse-dot">
+          <animateMotion dur="3.2s" repeatCount="indefinite" path="M60,100 L180,100 L300,100 L420,100" />
+        </circle>
+      </svg>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-head">
+      <p class="eyebrow">selected projects</p>
+      <h2>Projects that shipped, not just simulated</h2>
+    </div>
+
+    <!-- CASE STUDY: Azure Pipeline -->
+    <article class="case-study">
+      <div class="case-meta">
+        <span class="tag tag-bronze">azure</span>
+        <span class="tag">databricks</span>
+        <span class="tag">mongodb</span>
+      </div>
+      <h3>End-to-End Azure ETL Pipeline for E-Commerce Analytics</h3>
+
+      <div class="case-block">
+        <p class="case-label">The problem</p>
+        <p>E-commerce data arrived from two very different places — a public dataset pulled via HTTP from GitHub, and an internal SQL table — with no shared structure, no enrichment, and no path to a report a stakeholder could trust.</p>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">The approach</p>
+        <p>Azure Data Factory orchestrates ingestion from both sources into ADLS Gen2 as raw data. Azure Databricks transforms that raw data, enriching it with a lookup table pulled from MongoDB, and writes the transformed output back to a second ADLS Gen2 layer. Azure Synapse sits on top, exposing the transformed data for reporting through Power BI, Tableau, and Microsoft Fabric.</p>
+      </div>
+
+      <div class="case-diagram">
+        <svg width="100%" viewBox="0 0 680 640" role="img" aria-labelledby="pipeline-title pipeline-desc">
+          <title id="pipeline-title">Azure ETL pipeline architecture</title>
+          <desc id="pipeline-desc">HTTP via GitHub and SQL Table sources feed into Azure Data Factory, which ingests raw data into ADLS Gen2. Azure Databricks transforms the data, enriched with a MongoDB lookup table, and writes transformed output back to ADLS Gen2. Synapse exposes the data for Power BI, Tableau, and Fabric reporting.</desc>
+          <defs>
+            <marker id="arrowP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+          </defs>
+
+          <g><rect x="40" y="40" width="180" height="130" rx="16" fill="none" stroke="var(--paper-dim)" stroke-width="0.5" opacity="0.4"/><text x="60" y="66" fill="var(--paper)" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600">Data sources</text></g>
+          <g><rect x="58" y="84" width="70" height="60" rx="8" fill="var(--ink-soft)" stroke="var(--paper-dim)" stroke-width="0.5"/><text x="93" y="108" text-anchor="middle" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">HTTP</text><text x="93" y="124" text-anchor="middle" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">via GitHub</text></g>
+          <g><rect x="140" y="84" width="70" height="60" rx="8" fill="var(--ink-soft)" stroke="var(--paper-dim)" stroke-width="0.5"/><text x="175" y="108" text-anchor="middle" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">SQL</text><text x="175" y="124" text-anchor="middle" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">table</text></g>
+
+          <text x="230" y="90" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Data ingestion</text>
+          <line x1="220" y1="100" x2="290" y2="100" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <g><rect x="292" y="76" width="150" height="48" rx="8" fill="#0C447C" stroke="#378ADD" stroke-width="0.5"/><text x="367" y="100" text-anchor="middle" dominant-baseline="central" fill="#E6F1FB" font-family="IBM Plex Mono, monospace" font-size="13">Azure Data Factory</text></g>
+
+          <line x1="367" y1="124" x2="367" y2="160" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+          <text x="380" y="145" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Raw data</text>
+
+          <g><rect x="292" y="162" width="150" height="48" rx="8" fill="#4A1B0C" stroke="#D85A30" stroke-width="0.5"/><text x="367" y="180" text-anchor="middle" dominant-baseline="central" fill="#F0997B" font-family="IBM Plex Mono, monospace" font-size="13">ADLS Gen2</text><text x="367" y="198" text-anchor="middle" dominant-baseline="central" fill="#F5C4B3" font-family="IBM Plex Mono, monospace" font-size="11">Raw data</text></g>
+
+          <line x1="442" y1="186" x2="478" y2="186" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <g><rect x="480" y="162" width="150" height="48" rx="8" fill="#412402" stroke="#BA7517" stroke-width="0.5"/><text x="555" y="180" text-anchor="middle" dominant-baseline="central" fill="#EF9F27" font-family="IBM Plex Mono, monospace" font-size="13">Azure Databricks</text><text x="555" y="198" text-anchor="middle" dominant-baseline="central" fill="#FAC775" font-family="IBM Plex Mono, monospace" font-size="11">Data transformation</text></g>
+
+          <g><rect x="480" y="260" width="150" height="48" rx="8" fill="var(--ink-soft)" stroke="var(--paper-dim)" stroke-width="0.5"/><text x="555" y="278" text-anchor="middle" dominant-baseline="central" fill="var(--paper)" font-family="IBM Plex Mono, monospace" font-size="13">MongoDB</text><text x="555" y="296" text-anchor="middle" dominant-baseline="central" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Enrichment table</text></g>
+          <line x1="555" y1="260" x2="555" y2="212" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <line x1="367" y1="210" x2="367" y2="380" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+          <text x="380" y="330" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Transformed</text>
+          <text x="380" y="346" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">data</text>
+
+          <g><rect x="292" y="382" width="150" height="48" rx="8" fill="#04342C" stroke="#1D9E75" stroke-width="0.5"/><text x="367" y="400" text-anchor="middle" dominant-baseline="central" fill="#5DCAA5" font-family="IBM Plex Mono, monospace" font-size="13">ADLS Gen2</text><text x="367" y="418" text-anchor="middle" dominant-baseline="central" fill="#9FE1CB" font-family="IBM Plex Mono, monospace" font-size="11">Transformed data</text></g>
+
+          <line x1="367" y1="430" x2="367" y2="466" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <g><rect x="292" y="468" width="150" height="48" rx="8" fill="#26215C" stroke="#7F77DD" stroke-width="0.5"/><text x="367" y="492" text-anchor="middle" dominant-baseline="central" fill="#CECBF6" font-family="IBM Plex Mono, monospace" font-size="13">Synapse</text></g>
+
+          <line x1="367" y1="516" x2="367" y2="552" stroke="var(--paper-dim)" stroke-width="1" marker-end="url(#arrowP)"/>
+
+          <g><rect x="240" y="554" width="254" height="60" rx="8" fill="var(--ink-soft)" stroke="var(--paper-dim)" stroke-width="0.5"/><text x="367" y="576" text-anchor="middle" dominant-baseline="central" fill="var(--paper)" font-family="IBM Plex Mono, monospace" font-size="13">Visualisation</text><text x="367" y="596" text-anchor="middle" dominant-baseline="central" fill="var(--paper-dim)" font-family="IBM Plex Mono, monospace" font-size="11">Power BI · Tableau · Fabric</text></g>
+        </svg>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">What I'd do differently</p>
+        <p>The MongoDB enrichment step introduces a dependency between two very different storage paradigms — document and lakehouse — inside one transformation stage. Next time I'd isolate that lookup as its own versioned reference dataset in ADLS, so the Databricks job doesn't need a live connection to MongoDB at run time.</p>
+      </div>
+
+      <ul class="project-facts">
+        <li><span>Ingestion</span> Azure Data Factory · GitHub · SQL</li>
+        <li><span>Storage</span> ADLS Gen2 (raw &amp; transformed)</li>
+        <li><span>Transform</span> Azure Databricks + MongoDB enrichment</li>
+        <li><span>Serving</span> Azure Synapse → Power BI · Tableau · Fabric</li>
+      </ul>
+    </article>
+
+    <!-- CASE STUDY: MSc Thesis -->
+    <article class="case-study">
+      <div class="case-meta">
+        <span class="tag tag-silver">xgboost</span>
+        <span class="tag">time series</span>
+        <span class="tag">public policy</span>
+      </div>
+      <h3>MSc Thesis — Forecasting Welfare Recipients &amp; Simulating Poverty Impacts of Policy Uplifts in Ireland</h3>
+
+      <div class="case-block">
+        <p class="case-label">The problem</p>
+        <p>Budget 2026 announced a €10-per-week increase to core social welfare payments in Ireland, effective January 2026. The intention was clear; the expected impact on poverty rates was not. This research set out to forecast welfare recipient numbers for 2026 and quantify what the uplift would actually do to national poverty levels.</p>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">The approach</p>
+        <p>Using Ireland's quarterly Live Register data (2014–2025) from the Irish Government open data portal, I engineered lag-based features and trained three forecasting models — SARIMA, Prophet, and XGBoost — on data through 2022Q4, testing on 2023Q1–2025Q3. XGBoost won clearly on every metric and became the forecasting engine for 2026. I then built a policy simulation layer: using a poverty-income elasticity of −7.14 (projected from official 2023–2024 statistics), I converted the €10 weekly uplift into a projected quarterly poverty-rate change and government cost, for each of the four 2026 quarters the model forecast.</p>
+      </div>
+
+      <div class="chart-wrap">
+        <div class="chart-legend">
+          <span><i class="legend-dot" style="background:#378ADD"></i>Actual (2014–2025)</span>
+          <span><i class="legend-dot dashed" style="border-color:#E24B4A"></i>XGBoost forecast (2026)</span>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="welfareChart" role="img" aria-label="Quarterly welfare recipients from 2014 to 2025 declining overall from about 400,000 to 165,000, with a COVID-related spike around 2020, then an XGBoost forecast for 2026 showing recipients between roughly 168,000 and 179,000">
+            Quarterly welfare recipients declining from roughly 391,000 in 2014Q1 to around 171,000 by 2025Q3, with a temporary rise around 2020. XGBoost forecasts 2026 quarters at approximately 178,935, 174,256, 174,747, and 168,394 recipients.
+          </canvas>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">Model comparison</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Model</th><th>MAE</th><th>RMSE</th><th>MAPE</th><th>Accuracy</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>SARIMA</td><td>14,877</td><td>16,520</td><td>8.36%</td><td>91.64%</td></tr>
+              <tr><td>Prophet</td><td>18,127</td><td>24,333</td><td>10.36%</td><td>89.64%</td></tr>
+              <tr class="highlight-row"><td>XGBoost</td><td>4,426</td><td>6,070</td><td>2.53%</td><td>97.47%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">2026 policy simulation results</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th>Quarter</th><th>Forecasted recipients</th><th>Quarterly uplift cost</th><th>Poverty-rate change</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2026 Q1</td><td>178,935</td><td>€23.26M</td><td>−7.32%</td></tr>
+              <tr><td>2026 Q2</td><td>174,256</td><td>€22.65M</td><td>−7.32%</td></tr>
+              <tr><td>2026 Q3</td><td>174,747</td><td>€22.72M</td><td>−7.32%</td></tr>
+              <tr><td>2026 Q4</td><td>168,394</td><td>€21.89M</td><td>−7.32%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <p class="case-label">What I'd do differently</p>
+        <p>XGBoost was trained on only two lag features, with no macroeconomic or demographic variables and no explicit seasonal component. The elasticity-based poverty simulation also assumes a uniform income effect across all recipients, which glosses over household structure, secondary income, and regional cost-of-living variation. Next time I'd bring in unemployment and inflation series as exogenous features, and model heterogeneity in the elasticity itself rather than applying one national figure to every recipient.</p>
+      </div>
+
+      <ul class="project-facts">
+        <li><span>Models</span> SARIMA · Prophet · XGBoost (winner)</li>
+        <li><span>Data</span> Ireland Live Register, 2014–2025 (open data portal)</li>
+        <li><span>Simulation</span> Poverty-income elasticity −7.14 · €10/week uplift</li>
+        <li><span>Tools</span> Python · Pandas · statsmodels · Prophet · XGBoost</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- PIPELINE / HOW I WORK -->
+  <section id="pipeline" class="section section-alt">
+    <div class="section-head">
+      <p class="eyebrow">how the work moves</p>
+      <h2>Raw data doesn't arrive ready. I build the path that gets it there.</h2>
+    </div>
+    <div class="stages">
+      <div class="stage">
+        <p class="stage-label bronze">Bronze</p>
+        <h4>Ingest &amp; land</h4>
+        <p>Pull data from source systems as-is. No assumptions yet — just get it in, reliably, on a schedule.</p>
+      </div>
+      <div class="stage">
+        <p class="stage-label silver">Silver</p>
+        <h4>Clean &amp; conform</h4>
+        <p>Deduplicate, type, validate, join. This is where most of the real engineering time goes.</p>
+      </div>
+      <div class="stage">
+        <p class="stage-label gold">Gold</p>
+        <h4>Model &amp; serve</h4>
+        <p>Curated, business-ready tables and dashboards — the layer stakeholders actually query and trust.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="section">
+    <div class="section-head">
+      <p class="eyebrow">stack</p>
+      <h2>Tools I reach for</h2>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <h4>Languages</h4>
+        <p>Python · PySpark · SQL · Java</p>
+      </div>
+      <div class="stack-group">
+        <h4>Azure Cloud</h4>
+        <p>Databricks · Data Factory · Blob Storage · Synapse · Microsoft Fabric</p>
+      </div>
+      <div class="stack-group">
+        <h4>Big Data / Hadoop</h4>
+        <p>HDFS · Spark · MapReduce · Hive · Kafka</p>
+      </div>
+      <div class="stack-group">
+        <h4>Databases</h4>
+        <p>MySQL · Oracle DB · MongoDB</p>
+      </div>
+      <div class="stack-group">
+        <h4>Analytics &amp; Reporting</h4>
+        <p>Power BI (DAX) · Tableau · Excel</p>
+      </div>
+      <div class="stack-group">
+        <h4>Ways of working</h4>
+        <p>Agile (Scrum) · Iterative Development</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section section-alt">
+    <div class="section-head">
+      <p class="eyebrow">background</p>
+      <h2>Experience</h2>
+    </div>
+    <div class="exp-list">
+
+      <article class="exp-item">
+        <div class="exp-head">
+          <h4>Data Analytics Associate</h4>
+          <span class="exp-when">June 2023 — August 2024</span>
+        </div>
+        <p class="exp-org">AD Digital, India</p>
+        <ul class="exp-bullets">
+          <li>Designed and implemented automated ETL pipelines using Python and SQL to integrate data from multiple business sources, improving reporting efficiency, data consistency and accessibility for stakeholders.</li>
+          <li>Developed interactive Power BI dashboards and KPI reporting solutions using DAX, enabling stakeholders to monitor campaign performance, customer retention trends, operational metrics and business outcomes.</li>
+          <li>Performed advanced data analysis and root cause investigations on large datasets to identify customer behaviour patterns and support strategic decision-making.</li>
+          <li>Enhanced data quality and reporting reliability through SQL optimisation, validation frameworks and process improvements, reducing manual effort and improving confidence in business reporting.</li>
+          <li>Partnered with business stakeholders to gather reporting requirements and translate business needs into KPI-driven analytics solutions.</li>
+        </ul>
+      </article>
+
+      <article class="exp-item">
+        <div class="exp-head">
+          <h4>Supervisor</h4>
+          <span class="exp-when">2025 — Present</span>
+        </div>
+        <p class="exp-org">Boojum, Dublin, Ireland</p>
+        <ul class="exp-bullets">
+          <li>Managed shift operations in a fast-paced environment, coordinating team activities and ensuring efficient day-to-day operations.</li>
+          <li>Maintained HACCP, health &amp; safety, and operational compliance records while managing employee hours, cash reconciliation, shift reporting and documentation.</li>
+          <li>Supported inventory, food preparation and wastage control processes while ensuring adherence to company standards and quality procedures.</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <div class="section-head" style="margin-top: 64px;">
+      <p class="eyebrow">education</p>
+      <h2>Education</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-when">Jan 2025 — Jan 2026</div>
+        <div class="tl-what">
+          <h4>MSc Data Analytics</h4>
+          <p>National College of Ireland, Dublin</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Jun 2020 — Jun 2024</div>
+        <div class="tl-what">
+          <h4>BEng Computer Engineering</h4>
+          <p>Savitribai Phule Pune University, India</p>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-when">Languages</div>
+        <div class="tl-what">
+          <h4>German (B1) · English · Hindi</h4>
+          <p>Goethe-Institut Zertifikat B1 (German Level 3)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="section">
+    <div class="section-head">
+      <p class="eyebrow">certifications</p>
+      <h2>Certifications</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <p class="cert-issuer">Microsoft</p>
+        <h4>DP-900 — Microsoft Azure Data Fundamentals</h4>
+      </div>
+      <div class="cert-card">
+        <p class="cert-issuer">Udemy</p>
+        <h4>Big Data Engineering Bootcamp with GCP &amp; Azure Cloud</h4>
+      </div>
+      <div class="cert-card">
+        <p class="cert-issuer">Trainity</p>
+        <h4>8-Week Data Analytics Specialisation</h4>
+      </div>
+      <div class="cert-card">
+        <p class="cert-issuer">Goethe-Institut</p>
+        <h4>Zertifikat B1 — German Level 3</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact">
+    <div class="contact-inner">
+      <p class="eyebrow">get in touch</p>
+      <h2>Open to data analyst, data engineer<br>and BI roles across Ireland.</h2>
+      <div class="contact-links">
+        <a href="mailto:sonawanesonalmanish@gmail.com" class="contact-link">sonawanesonalmanish@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sonal-sonawane1810" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/sonal1810" class="contact-link" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Built &amp; maintained by Sonal · Dublin</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+(function() {
+  var q = ['2014Q1','2014Q2','2014Q3','2014Q4','2015Q1','2015Q2','2015Q3','2015Q4','2016Q1','2016Q2','2016Q3','2016Q4','2017Q1','2017Q2','2017Q3','2017Q4','2018Q1','2018Q2','2018Q3','2018Q4','2019Q1','2019Q2','2019Q3','2019Q4','2020Q1','2020Q2','2020Q3','2020Q4','2021Q1','2021Q2','2021Q3','2021Q4','2022Q1','2022Q2','2022Q3','2022Q4','2023Q1','2023Q2','2023Q3','2023Q4','2024Q1','2024Q2','2024Q3','2024Q4','2025Q1','2025Q2','2025Q3'];
+  var actual = [391,398,404,370,357,354,358,352,347,332,322,321,317,306,318,286,277,274,278,265,272,235,275,246,204,220,245,225,203,193,189,199,181,178,192,180,163,164,183,189,197,180,183,172,195,183,171];
+  var fq = ['2026Q1','2026Q2','2026Q3','2026Q4'];
+  var forecast = [178.9,174.3,174.7,168.4];
+  var allLabels = q.concat(fq);
+  var actualData = actual.concat(Array(4).fill(null));
+  var forecastData = Array(q.length - 1).fill(null).concat([actual[actual.length - 1]]).concat(forecast);
+
+  new Chart(document.getElementById('welfareChart'), {
+    type: 'line',
+    data: {
+      labels: allLabels,
+      datasets: [
+        { label: 'Actual', data: actualData, borderColor: '#378ADD', backgroundColor: 'rgba(55,138,221,0.08)', fill: true, borderWidth: 2, pointRadius: 0, tension: 0.25 },
+        { label: 'XGBoost forecast', data: forecastData, borderColor: '#E24B4A', borderWidth: 2, borderDash: [6,4], pointRadius: 0, tension: 0.25 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + (ctx.parsed.y !== null ? Math.round(ctx.parsed.y * 1000).toLocaleString() : ''); } } }
+      },
+      scales: {
+        y: { ticks: { color: '#B9B4A8', callback: function(v) { return v + 'k'; } }, grid: { color: 'rgba(185,180,168,0.12)' } },
+        x: { ticks: { color: '#B9B4A8', autoSkip: true, maxTicksLimit: 12, maxRotation: 45 }, grid: { display: false } }
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
